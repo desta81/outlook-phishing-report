@@ -1,0 +1,14 @@
+C:\Users\pc\Desktop\Quick Access\W o r k\OutlookSpamReporter\OutlookSpamReporter\bin\Release\OutlookSpamReporter.dll
+C:\Users\pc\Desktop\Quick Access\W o r k\OutlookSpamReporter\OutlookSpamReporter\bin\Release\OutlookSpamReporter.pdb
+C:\Users\pc\Desktop\Quick Access\W o r k\OutlookSpamReporter\OutlookSpamReporter\bin\Release\OutlookSpamReporter.dll.manifest
+C:\Users\pc\Desktop\Quick Access\W o r k\OutlookSpamReporter\OutlookSpamReporter\bin\Release\OutlookSpamReporter.vsto
+C:\Users\pc\Desktop\Quick Access\W o r k\OutlookSpamReporter\OutlookSpamReporter\bin\Release\Microsoft.Office.Tools.Common.v4.0.Utilities.dll
+C:\Users\pc\Desktop\Quick Access\W o r k\OutlookSpamReporter\OutlookSpamReporter\bin\Release\Microsoft.Office.Tools.Outlook.v4.0.Utilities.dll
+C:\Users\pc\Desktop\Quick Access\W o r k\OutlookSpamReporter\OutlookSpamReporter\obj\Release\OutlookSpamReporter.csproj.AssemblyReference.cache
+C:\Users\pc\Desktop\Quick Access\W o r k\OutlookSpamReporter\OutlookSpamReporter\obj\Release\OutlookSpamReporter.Properties.Resources.resources
+C:\Users\pc\Desktop\Quick Access\W o r k\OutlookSpamReporter\OutlookSpamReporter\obj\Release\OutlookSpamReporter.SpamReporterRibbon.resources
+C:\Users\pc\Desktop\Quick Access\W o r k\OutlookSpamReporter\OutlookSpamReporter\obj\Release\OutlookSpamReporter.csproj.GenerateResource.cache
+C:\Users\pc\Desktop\Quick Access\W o r k\OutlookSpamReporter\OutlookSpamReporter\obj\Release\OutlookSpamReporter.csproj.CoreCompileInputs.cache
+C:\Users\pc\Desktop\Quick Access\W o r k\OutlookSpamReporter\OutlookSpamReporter\obj\Release\OutlookS.2DD974DF.Up2Date
+C:\Users\pc\Desktop\Quick Access\W o r k\OutlookSpamReporter\OutlookSpamReporter\obj\Release\OutlookSpamReporter.dll
+C:\Users\pc\Desktop\Quick Access\W o r k\OutlookSpamReporter\OutlookSpamReporter\obj\Release\OutlookSpamReporter.pdb
