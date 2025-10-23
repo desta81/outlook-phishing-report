@@ -112,12 +112,6 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_6DC1C31316EF193C0780E9F7572BC88E"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_25E730BE92AA48719888A18813A63582"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -161,6 +155,12 @@
         {
         "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_DB058DAF2E803C89EF23B0E2024DA4B2"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_6DC1C31316EF193C0780E9F7572BC88E"
         "MsmSig" = "8:_UNDEFINED"
         }
     }
@@ -801,6 +801,14 @@
                                                                     "ValueTypes" = "3:1"
                                                                     "Value" = "8:file:///[TARGETDIR]OutlookSpamReporter.vsto|vstolocal"
                                                                     }
+                                                                    "{ADCFDA98-8FDD-45E4-90BC-E3D20B029870}:_B9C30BF9A66048AD8A6FFABC0C1C132C"
+                                                                    {
+                                                                    "Name" = "8:AdminEmail"
+                                                                    "Condition" = "8:"
+                                                                    "Transitive" = "11:FALSE"
+                                                                    "ValueTypes" = "3:1"
+                                                                    "Value" = "8:"
+                                                                    }
                                                                     "{ADCFDA98-8FDD-45E4-90BC-E3D20B029870}:_EE6269BB18D747DC8ED9DF7161A5C192"
                                                                     {
                                                                     "Name" = "8:FriendlyName"
@@ -1245,7 +1253,7 @@
         {
             "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_25E730BE92AA48719888A18813A63582"
             {
-            "SourcePath" = "8:..\\OutlookSpamReporter\\obj\\Debug\\OutlookSpamReporter.dll"
+            "SourcePath" = "8:..\\OutlookSpamReporter\\obj\\Release\\OutlookSpamReporter.dll"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_A62A3D285A8B4AEDB54D661A6CA5E885"
