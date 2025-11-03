@@ -58,13 +58,13 @@
             // group1
             // 
             this.group1.Items.Add(this.btnReportSpam);
-            this.group1.Label = "Spam Reporter";
+            this.group1.Label = "Report phishing";
             this.group1.Name = "group1";
             // 
             // btnReportSpam
             // 
             this.btnReportSpam.Image = ((System.Drawing.Image)(resources.GetObject("btnReportSpam.Image")));
-            this.btnReportSpam.Label = "Report Spam";
+            this.btnReportSpam.Label = "Report phishing";
             this.btnReportSpam.Name = "btnReportSpam";
             this.btnReportSpam.ShowImage = true;
             this.btnReportSpam.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.btnReportSpam_Click);

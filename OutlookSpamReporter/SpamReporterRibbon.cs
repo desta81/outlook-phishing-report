@@ -7,6 +7,7 @@ using Outlook = Microsoft.Office.Interop.Outlook;
 using System.IO;
 using OutlookSpamReporter.Utilities;
 using Microsoft.Win32;
+using System.Windows.Forms;
 
 namespace OutlookSpamReporter
 {
@@ -28,11 +29,11 @@ namespace OutlookSpamReporter
                 btnReportSpam.Label = labelValue;
             }
             else
-            { btnReportSpam.Label = "Report Spam"; }
+            { btnReportSpam.Label = "Report phishing"; }
             try
             {
                 var application = Globals.ThisAddIn.Application;
-                FileLogger.Info("Report Spam clicked");
+                FileLogger.Info("Report phishing clicked");
                 Outlook.Selection selection = application.ActiveExplorer().Selection;
                 if (selection == null || selection.Count == 0)
                 {
@@ -40,12 +41,18 @@ namespace OutlookSpamReporter
                     System.Windows.Forms.MessageBox.Show("Please select at least one email.");
                     return;
                 }
+                if (selection.Count > 1)
+                {
+                    FileLogger.Info("No items selected");
+                    System.Windows.Forms.MessageBox.Show("Only one email at a time is allowed.");
+                    return;
+                }
 
 
                 Outlook.MailItem forwardMail = application.CreateItem(Outlook.OlItemType.olMailItem) as Outlook.MailItem;
-                forwardMail.Subject = "Spam Report";
+                forwardMail.Subject = "Phish Report";
                 forwardMail.To = email;
-                forwardMail.Body = "Please review the attached spam emails for investigation.";
+                forwardMail.Body = "Please review the attached phish email for investigation.";
 
                 for (int i = 1; i <= selection.Count; i++)
                 {
@@ -63,12 +70,22 @@ namespace OutlookSpamReporter
                     FileLogger.Info("Attached message: " + tempPath);
                 }
 
-                forwardMail.Send();
-                FileLogger.Info("Spam report email sent automatically");
+                //forwardMail.Send(); 
+                DialogResult confirmResult = System.Windows.Forms.MessageBox.Show("You are about to report this email to the Cyber Ready team for review. They will contact you soon with further details. If you believe this email is not a phish or was reported by mistake, click Cancel.",
+                    "Report Email"
+                    , MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+                if (confirmResult == DialogResult.OK) {
+                    forwardMail.Send();
+                    MessageBox.Show("Email reported successfully.", "Success");
+                    FileLogger.Info("Phish report email sent automatically");
+                } else {
+                    MessageBox.Show("Sending  report canceled.", "Canceled");
+                }
             }
             catch (Exception ex)
             {
-                FileLogger.Error("Error creating spam report", ex);
+                FileLogger.Error("Error creating phish report", ex);
+                System.Windows.Forms.MessageBox.Show("Failed to report the email. Please try again.");
             }
         }
 
@@ -77,14 +94,14 @@ namespace OutlookSpamReporter
             try
             {
                 var application = Globals.ThisAddIn.Application;
-                FileLogger.Info("Report Spam (Read) clicked");
+                FileLogger.Info("Report Phish (Read) clicked");
 
                 // Get the currently open mail item
                 Outlook.Inspector inspector = application.ActiveInspector();
                 if (inspector == null)
                 {
                     FileLogger.Info("No mail item open");
-                    System.Windows.Forms.MessageBox.Show("Please open an email to report as spam.");
+                    System.Windows.Forms.MessageBox.Show("Please open an email to report as phish.");
                     return;
                 }
 
@@ -92,14 +109,14 @@ namespace OutlookSpamReporter
                 if (currentMail == null)
                 {
                     FileLogger.Info("Current item is not a mail item");
-                    System.Windows.Forms.MessageBox.Show("Please open an email to report as spam.");
+                    System.Windows.Forms.MessageBox.Show("Please open an email to report as phish.");
                     return;
                 }
 
                 Outlook.MailItem forwardMail = application.CreateItem(Outlook.OlItemType.olMailItem) as Outlook.MailItem;
-                forwardMail.Subject = "Spam Report";
+                forwardMail.Subject = "Phish Report";
                 forwardMail.To = email;
-                forwardMail.Body = "Please review the attached spam email for investigation.";
+                forwardMail.Body = "Please review the attached phish email for investigation.";
 
                 string tempPath = Path.Combine(Path.GetTempPath(), Guid.NewGuid().ToString("N") + ".msg");
                 currentMail.SaveAs(tempPath, Outlook.OlSaveAsType.olMSGUnicode);
@@ -107,11 +124,13 @@ namespace OutlookSpamReporter
                 FileLogger.Info("Attached message: " + tempPath);
 
                 forwardMail.Send();
-                FileLogger.Info("Spam report email sent automatically");
+                FileLogger.Info("Phish report email sent automatically");
+                System.Windows.Forms.MessageBox.Show("Email reported successfully.");
             }
             catch (Exception ex)
             {
-                FileLogger.Error("Error creating spam report", ex);
+                FileLogger.Error("Error creating phish report", ex);
+                System.Windows.Forms.MessageBox.Show("Failed to report the email. Please try again.");
             }
         }
         private string ReadRegistryValue(string keyName, string valueName)
