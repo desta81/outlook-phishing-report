@@ -1,0 +1,12 @@
+{
+  "version": "1.0",
+  "components": [
+    "Microsoft.VisualStudio.Workload.Office",
+    "Microsoft.VisualStudio.Component.OfficeTools.VSTO",
+    "Microsoft.VisualStudio.Component.OfficeTools.MSBuild",
+    "Microsoft.VisualStudio.Component.Sharepoint.Tools",
+    "Microsoft.Net.Component.4.7.2.TargetingPack",
+    "Microsoft.Net.Component.4.TargetingPack",
+    "Microsoft.VisualStudio.Component.NuGet"
+  ]
+}

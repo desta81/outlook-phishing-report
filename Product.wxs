@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+    <Product Id="*" 
+             Name="Outlook Phishing Reporter" 
+             Language="1033" 
+             Version="1.0.0.0" 
+             Manufacturer="Outlook Phishing Reporter" 
+             UpgradeCode="bf7e99e0-3942-4916-90e9-74d1a0129202">
+        <Package InstallerVersion="200" 
+                 Compressed="yes" 
+                 InstallScope="perMachine" 
+                 Description="Outlook Phishing Reporter Add-in"/>
+        
+        <MajorUpgrade DowngradeErrorMessage="A newer version of [ProductName] is already installed." />
+        <MediaTemplate EmbedCab="yes" />
+
+        <Feature Id="ProductFeature" 
+                 Title="Outlook Phishing Reporter" 
+                 Level="1"
+                 Description="Outlook add-in for reporting phishing emails">
+            <ComponentRef Id="OutlookAddInComponent" />
+        </Feature>
+    </Product>
+
+    <Fragment>
+        <Directory Id="TARGETDIR" Name="SourceDir">
+            <Directory Id="ProgramFilesFolder">
+                <Directory Id="INSTALLFOLDER" Name="Outlook Phishing Reporter" />
+            </Directory>
+        </Directory>
+    </Fragment>
+
+    <Fragment>
+        <Component Id="OutlookAddInComponent" 
+                   Guid="b1a2b3c4-d5e6-7890-1234-567890abcdef" 
+                   Directory="INSTALLFOLDER">
+            <File Id="OutlookPhishingReporterDll" 
+                  Name="OutlookPhishingReporter.dll" 
+                  Source="OutlookPhishingReporter\bin\Release\OutlookPhishingReporter.dll" />
+        </Component>
+    </Fragment>
+</Wix>
