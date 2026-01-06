@@ -14,16 +14,35 @@ namespace OutlookPhishingReporter
 {
     public partial class PhishingReporterRibbon
     {
+        private const string REGISTRY_KEY_PATH = @"Software\Microsoft\Office\Outlook\Addins\OutlookPhishingReporter";
+        private const string ADMIN_EMAIL_VALUE = "AdminEmail";
+        private const string CUSTOM_ICON_VALUE = "CustomIconPath";
+        private const string CUSTOM_LABEL_VALUE = "ButtonLabel";
+
         string email = "";
         string customIconPath = "";
         string customButtonLabel = "";
 
         private void PhishingReporterRibbon_Load(object sender, RibbonUIEventArgs e)
         {
-            string KeyPath = @"Software\Microsoft\Office\Outlook\Addins\OutlookPhishingReporter";
-            email = ReadRegistryValue(KeyPath, "AdminEmail");
-            customIconPath = ReadRegistryValue(KeyPath, "CustomIconPath");
-            customButtonLabel = ReadRegistryValue(KeyPath, "ButtonLabel");
+            email = ReadRegistryValue(REGISTRY_KEY_PATH, ADMIN_EMAIL_VALUE);
+            customIconPath = ReadRegistryValue(REGISTRY_KEY_PATH, CUSTOM_ICON_VALUE);
+            customButtonLabel = ReadRegistryValue(REGISTRY_KEY_PATH, CUSTOM_LABEL_VALUE);
+
+            // If email not configured in registry, use default for debug/testing
+            if (string.IsNullOrEmpty(email))
+            {
+                #if DEBUG
+                    email = "yosi.desta@outlook.co.il"; // Default email for debug mode
+                    FileLogger.Info("Using default email for debug mode: " + email);
+                #else
+                    FileLogger.Info("Admin email not configured in registry");
+                #endif
+            }
+            else if (!IsValidEmail(email))
+            {
+                FileLogger.Info("Admin email configured but invalid format: " + email);
+            }
 
             // Apply custom icon if configured
             if (!string.IsNullOrEmpty(customIconPath) && File.Exists(customIconPath))
@@ -125,7 +144,7 @@ namespace OutlookPhishingReporter
                         MoveToDeletedItems(mailToDelete);
                     }
 
-                    // Updated success message
+                    // Updated success message with custom title and message text
                     MessageBox.Show(
                         "Thank you for reporting this email as phishing. It has been moved to the Deleted Items folder.",
                         "Report phishing",
@@ -134,8 +153,8 @@ namespace OutlookPhishingReporter
                 }
                 else
                 {
+                    FileLogger.Info("User canceled sending phish report");
                     MessageBox.Show("Phishing report canceled.", "Canceled", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    FileLogger.Info("Phish report canceled by user");
                 }
             }
             catch (Exception ex)
@@ -146,7 +165,10 @@ namespace OutlookPhishingReporter
             finally
             {
                 // Clean up temporary files
-                CleanupTempFiles(tempFiles);
+                if (tempFiles != null && tempFiles.Count > 0)
+                {
+                    CleanupTempFiles(tempFiles);
+                }
             }
         }
 
@@ -231,7 +253,7 @@ namespace OutlookPhishingReporter
                     FileLogger.Error("Failed to close inspector window", closeEx);
                 }
 
-                // Updated success message
+                // Updated success message with consistent title and message
                 MessageBox.Show(
                     "Thank you for reporting this email as phishing. It has been moved to the Deleted Items folder.",
                     "Report phishing",

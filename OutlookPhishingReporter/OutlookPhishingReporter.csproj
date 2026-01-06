@@ -280,7 +280,7 @@
     <SignAssembly>false</SignAssembly>
   </PropertyGroup>
   <PropertyGroup>
-    <AssemblyOriginatorKeyFile>outlookphishingreporter.pfx</AssemblyOriginatorKeyFile>
+    <!-- <AssemblyOriginatorKeyFile>outlookphishingreporter.pfx</AssemblyOriginatorKeyFile> -->
   </PropertyGroup>
   <!-- Include the build rules for a C# project. -->
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

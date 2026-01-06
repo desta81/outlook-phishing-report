@@ -98,7 +98,9 @@
             // PhishingReporterRibbon
             //
             this.Name = "PhishingReporterRibbon";
-            this.RibbonType = "Microsoft.Outlook.Explorer";
+            // Support both the Explorer (mail list) and the Read Message inspector so
+            // the button appears on the message toolbar as well as the main mail view.
+            this.RibbonType = "Microsoft.Outlook.Explorer, Microsoft.Outlook.Mail.Read";
             this.Tabs.Add(this.tab1);
             this.Tabs.Add(this.tabRead);
             this.Load += new Microsoft.Office.Tools.Ribbon.RibbonUIEventHandler(this.PhishingReporterRibbon_Load);

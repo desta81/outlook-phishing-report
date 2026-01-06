@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+  <Product 
+    Id="*"
+    Name="Outlook Phishing Reporter"
+    Language="1033"
+    Version="1.0.0.0"
+    Manufacturer="Your Organization"
+    UpgradeCode="12345678-1234-1234-1234-123456789ABC">
+    
+    <Package 
+      Id="*"
+      Keywords="Outlook,Add-in,Phishing"
+      Description="Outlook Phishing Reporter Add-in"
+      InstallerVersion="200"
+      Languages="1033"
+      Compressed="yes"
+      InstallScope="perUser" />
+
+    <Media Id="1" Cabinet="OutlookPhishingReporter.cab" EmbedCab="yes" />
+
+    <Directory Id="TARGETDIR" Name="SourceDir">
+      <Directory Id="LocalAppDataFolder">
+        <Directory Id="INSTALLFOLDER" Name="OutlookPhishingReporter" />
+      </Directory>
+    </Directory>
+
+    <Feature Id="ProductFeature" Title="Outlook Phishing Reporter" Level="1" Description="Report phishing emails with one click">
+      <ComponentRef Id="RegistryComponent" />
+      <ComponentRef Id="DLLComponent" />
+    </Feature>
+
+    <DirectoryRef Id="INSTALLFOLDER">
+      <Component Id="DLLComponent" Guid="F61D4F45-35B4-4A36-8FA4-F8D5C5A8B9C2">
+        <RemoveFolder Id="INSTALLFOLDER" On="uninstall" />
+        <RegistryValue Root="HKCU" Key="Software\OutlookPhishingReporter" Name="DLLPath" Type="string" Value="[INSTALLFOLDER]" KeyPath="yes" />
+        <File Id="DLLFile" Source="OutlookPhishingReporter.dll" />
+        <File Id="VSTOFile" Source="OutlookPhishingReporter.vsto" />
+        <File Id="ManifestFile" Source="OutlookPhishingReporter.dll.manifest" />
+      </Component>
+    </DirectoryRef>
+
+    <DirectoryRef Id="TARGETDIR">
+      <Component Id="RegistryComponent" Guid="A8F73E21-4B5C-4E8A-9D2F-1E6A7B3C9D4E">
+        <RegistryKey Root="HKCU" Key="Software\Microsoft\Office\Outlook\Addins\OutlookPhishingReporter">
+          <RegistryValue Type="string" Name="Description" Value="Outlook Phishing Reporter" KeyPath="yes" />
+          <RegistryValue Type="integer" Name="LoadBehavior" Value="3" />
+          <RegistryValue Type="string" Name="Manifest" Value="[INSTALLFOLDER]OutlookPhishingReporter.dll.manifest" />
+        </RegistryKey>
+      </Component>
+    </DirectoryRef>
+  </Product>
+</Wix>

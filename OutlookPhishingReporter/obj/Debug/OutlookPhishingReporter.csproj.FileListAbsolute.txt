@@ -1,0 +1,14 @@
+C:\Users\YosiD\OneDrive\Desktop\etio\Outlook-Phishing-Reporter\OutlookPhishingReporter\bin\Debug\OutlookPhishingReporter.dll
+C:\Users\YosiD\OneDrive\Desktop\etio\Outlook-Phishing-Reporter\OutlookPhishingReporter\bin\Debug\OutlookPhishingReporter.pdb
+C:\Users\YosiD\OneDrive\Desktop\etio\Outlook-Phishing-Reporter\OutlookPhishingReporter\bin\Debug\OutlookPhishingReporter.dll.manifest
+C:\Users\YosiD\OneDrive\Desktop\etio\Outlook-Phishing-Reporter\OutlookPhishingReporter\bin\Debug\OutlookPhishingReporter.vsto
+C:\Users\YosiD\OneDrive\Desktop\etio\Outlook-Phishing-Reporter\OutlookPhishingReporter\bin\Debug\Microsoft.Office.Tools.Common.v4.0.Utilities.dll
+C:\Users\YosiD\OneDrive\Desktop\etio\Outlook-Phishing-Reporter\OutlookPhishingReporter\bin\Debug\Microsoft.Office.Tools.Outlook.v4.0.Utilities.dll
+C:\Users\YosiD\OneDrive\Desktop\etio\Outlook-Phishing-Reporter\OutlookPhishingReporter\obj\Debug\OutlookPhishingReporter.csproj.AssemblyReference.cache
+C:\Users\YosiD\OneDrive\Desktop\etio\Outlook-Phishing-Reporter\OutlookPhishingReporter\obj\Debug\OutlookPhishingReporter.Properties.Resources.resources
+C:\Users\YosiD\OneDrive\Desktop\etio\Outlook-Phishing-Reporter\OutlookPhishingReporter\obj\Debug\OutlookPhishingReporter.PhishingReporterRibbon.resources
+C:\Users\YosiD\OneDrive\Desktop\etio\Outlook-Phishing-Reporter\OutlookPhishingReporter\obj\Debug\OutlookPhishingReporter.csproj.GenerateResource.cache
+C:\Users\YosiD\OneDrive\Desktop\etio\Outlook-Phishing-Reporter\OutlookPhishingReporter\obj\Debug\OutlookPhishingReporter.csproj.CoreCompileInputs.cache
+C:\Users\YosiD\OneDrive\Desktop\etio\Outlook-Phishing-Reporter\OutlookPhishingReporter\obj\Debug\OutlookP.D8A2DA26.Up2Date
+C:\Users\YosiD\OneDrive\Desktop\etio\Outlook-Phishing-Reporter\OutlookPhishingReporter\obj\Debug\OutlookPhishingReporter.dll
+C:\Users\YosiD\OneDrive\Desktop\etio\Outlook-Phishing-Reporter\OutlookPhishingReporter\obj\Debug\OutlookPhishingReporter.pdb
